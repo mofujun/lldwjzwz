@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>cs</title> 
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<style>
+*{
+    padding:0;
+    margin:0;
+}
+   .plq{
+    border: solid 1px white;
+    width: 600px;
+   } 
+   .plq ul li{
+    list-style: none;
+    width: 600px;
+    border-top: 1px solid #aaa;
+    margin-top: 5px;
+    word-break: break-word;
+   }
+   .div1{
+        color: #999999;
+        height: 27px;
+        margin-left: 24px;
+
+   }
+   .div2{
+    color: black;
+    word-break: break-word;
+    word-break:break-all; 
+   }
+   .zy_qb{
+    width: 90%;
+    margin: 0 auto;
+    border: solid 1px purple;
+   }
+</style>
+</head>
+
+<body>
+<div class="zy_qb">
+  <div>
+    
+  </div>
+  <div>
+    
+  </div>
+
+  <!--评论区内容-->
+  <div class="sy">
+      <div class="pl">
+          <textarea rows="5" cols="80" id="pl" placeholder="输入评论..." style="resize:none"></textarea>
+         
+          <br/>
+          <input type="button" value="评论" id="button1">
+      </div>
+      <div class="plq">
+          <ul>
+          </ul>
+      </div> 
+  </div>
+</div>  
+</body>
+<!--评论区js-->
+<script type="text/javascript">
+  var plsl=0;
+  $(function(){
+      $.post("http://localhost/xspl.php",function(data,status){
+          if(status=="success"){
+              var x=JSON.parse(data);
+              //var x=data;
+              //$(".plq>ul").empty();
+              for(var i=x.length-1;i>=plsl;i--){
+                 
+                      var pldnr=x[i][0];
+                      var time=x[i][1];
+                     
+                      var sp=$("<div></div").text(time).attr("class","div1")
+                     var sp2=$("<div></div>").text(pldnr).attr("class","div2")
+                      var lii=$("<li></li>").append(sp).append(sp2); 
+                      $(".plq>ul").append(lii);
+                      console.log("1");
+                       
+              }
+               plsl=x.length;
+          }
+            else{
+              alert(data);
+          }
+
+
+       })
+  })
+
+  $("#button1").click(function(){
+      var nr=$("#pl").val();
+          $.post("http://localhost/pl.php",{hqnr:nr},function(data,status){
+            $("#button1").attr("disabled","disabled");
+          if(status=="success"){
+
+        $.post("http://localhost/xspl.php",function(data,status){
+           if(status=="success"){
+              var x=JSON.parse(data);
+              //var x=data;
+              //$(".plq>ul").empty();
+              for(var i=x.length-1;i>=plsl;i--){
+                 
+                      var pldnr=x[i][0];
+                      var time=x[i][1];
+                     
+                      var sp=$("<div></div").text(time).attr("class","div1")
+                      var sp2=$("<div></div>").text(pldnr).attr("class","div2")
+                      var lii=$("<li></li>").append(sp).append(sp2); 
+                      $(".plq>ul").prepend(lii);
+                       
+              }
+              $("#button1").removeAttr("disabled","disabled");
+               plsl=x.length;
+          }
+          
+        else{
+              alert(data);
+          }
+
+       })
+
+          }
+
+           else{
+              alert(data);
+          }
+
+
+       });
+  })
+
+</script>
+</html>
+

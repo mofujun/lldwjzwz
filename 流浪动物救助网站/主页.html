@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小爱心</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+	<style type="text/css">
+	 *{
+	 	padding: 0;
+	 	margin: 0;
+	 }
+	  
+	 a{
+	 	text-decoration: none;
+	 	color: #B8B8B8;
+	 }
+	 li{
+	 	list-style: none;
+	 }
+	 .top{
+	 	width: 100%;
+	 	height: 300px;
+	 }
+	 .topimg img{
+	 	width: 100%;
+	 	height: 300px;
+	 }
+	 .a1{
+		height: 68px;
+		background:#333333;
+		overflow: visible;
+	 }
+	 .nav{
+	 	float: left;
+	 	width: 460px;
+	 	height: 68px;
+	 	margin-left: 55px;
+	 }
+	 .nav ul li{
+	 	float: left;
+	 	height: 68px;
+	 	width: 100px;
+	 	text-align: center;
+	 	line-height: 68px;
+	 	list-style: none;
+	 	color: #B8B8B8;
+	 }
+	 .nav ul li:hover{
+	 	background-color: #0A0A0A;
+	 }
+	 .ss{
+	 	float:left;
+	 	color:  #B8B8B8;
+	 	line-height: 63px;
+	 }
+	
+	 .user{
+	 	float: right;
+	 	padding-right: 60px;
+	 }
+	 .user ul a{
+	 	list-style: none;
+	 	color: #B8B8B8;
+	 	float: left;
+	 	line-height: 68px;
+	 	padding: 0 10px;
+	 }
+	 .b1{
+	 	width: 90%;
+	 	background-color: #FFFFFF;
+	 	margin: 0 auto;
+	 	border: solid 1px #FFFFFF;
+	 	margin-top: 15px;
+	 }
+	 .leftnr{
+	 	  width:800px; 
+	 	  margin-left:20px;
+	 	  margin-top: 14px;
+	 	  display: inline-block;
+	 }
+	 .lb{
+	 	height: 300px;
+	 }
+	 .lbt{
+	 	width: 560px;
+	 	height: 300px;
+	 	background-color: green;
+	 	float: left;
+	 }
+	.lbtimg{
+		width: 560px;
+	 	height: 300px;
+	}
+	 .lbtright{
+	 	height: 300px;
+	 	width: 200px;
+	 	float: right;
+
+	 }
+	 .lbtright ul li div{
+	 	
+
+
+	 }
+	.wz{
+		width: 200px;
+	 	height: 80px;
+	 	margin-bottom: 29px;
+	   
+	    color: #F6F3EA;
+	    text-align: left;
+		 background-color: purple;
+	}
+	  
+    .rightnr{
+    	width: 340px;
+    	float: right;
+    	margin-right:20px;
+	    margin-top: 14px;
+
+    }
+    .xw{
+	 	margin-top:26px;
+	 	margin-bottom:12px;
+	 	border-bottom:solid 2px #666666;
+	 	font-size: 25px; 
+	 }
+	 .n1{
+	 	width: 340px;
+	 	height: 120px;
+	 	background-color: red;
+	 	margin-top: 10px;
+	 }
+    .zzs{
+    	font-size: 20px;
+    	color: #424542;
+    	padding-bottom: 4px;
+    	margin-top: 15px;
+    	border-bottom:solid 2px #D6D6D6;
+    }
+    .zzslb{
+    	color: #3F3F3F;
+    	margin-top: 20px;
+    }
+    .zzslb ul li{
+    	padding-bottom: 20px;
+    }
+    .time{
+    float: left;
+    width: 58px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #272322;
+    font-size: 16px;
+    background: #F2F2F2;
+
+    }
+    .titles{
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    font-size: 13px;
+    color: #3f3f3f;
+    padding-left: 8px;
+
+    }
+    .lybt{
+    	border-bottom:solid 2px #666666; 
+    	font-size: 25px;
+    }
+    .lynr ul li{
+    	padding:20px 0; 
+    	border-bottom: solid 2px #EEEEEE;
+    }
+    .imgs a img{
+    	width: 200px;
+    	height: 140px;
+    	float: left;
+    }
+    .contents{
+    	width: 550px;
+    	height: 140px;
+    	background-color: purple;
+    	float: right;
+    }
+    .qcfd:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+    .append:hover{
+    	cursor: pointer;
+    }
+    .yqlj ul li{
+    float: left;
+    height: 22px;
+    font-size: 18px;
+    padding: 5px 17px;
+    overflow: hidden;
+    }
+    .yqlj ul li a{
+    	color: #666666;
+    }
+    .yqlj:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+    .over{
+    margin-top: 20px;
+    background-color: #3E3E3E;
+    color: #8F8F8F;
+    width: 100%;
+    height: 54px;
+    line-height: 54px;
+    }
+   .zjdl{
+    	background-color: red;
+    }
+	.all{
+		position: relative;
+	}
+	*{
+			padding:0px;
+			margin: 0px;
+		}
+			
+			.gs{
+				margin-top: 20px;
+			}
+			.gs>input{
+				width: 400px;
+				height: 50px;
+				line-height: 50px;
+				border: solid 1px #aaa;
+			    border-radius: 6px;
+			}
+			.wjmm{
+				float: right;
+			}
+			.wjmm:after{
+				  content: "020"; 
+				  display: block; 
+				  height: 0; 
+				  clear: both; 
+				  visibility: hidden;  
+ 				 }
+			.cwts{
+				width: 400px;
+				height: 40px;
+				line-height: 40px;
+				margin-top: 10px;
+				color: red;
+			}
+			.bjys{
+				background-color: blue;
+			}
+			.main{
+				position: absolute;
+				z-index: 3;
+				width: 402px;
+				height: 430px;
+				margin-right: 200px;
+				border-radius:12px; 
+				top: 126px;
+				left: 454px;
+				background-color: white;
+				display: none;
+
+			}
+			.user>ul>a:hover{
+				background-color: blue;
+			}
+	</style>
+</head>
+<body style="background-color:#F2F2F2;">
+<div class="all">
+	<div class="top">
+	 <div class="topimg" style="position:relative;">
+	  <img src="img/1.jpg" alt="maoamo">
+	 
+	 </div>
+	
+	 
+
+	</div>
+	<div class="a1">
+	 <div class="nav">
+	  <ul>
+	   <li><a href="主页.html">首页</a></li>
+	   <li><a href="javascript:void()">领养</a></li>
+	   <li><a href="javascript:void()">涨知识</a></li>
+	   <li><a href="javascript:void()">新闻</a></li>
+	  </ul>
+	 </div>
+	 <div class="ss">
+	  <div class="ssnr">
+	   <table>
+	    <tr>
+	     <td><input type="text" name="" placeholder="请输入关键字..."></td>
+	     <td><input type="button" value="搜索" ></td>
+	    </tr>
+	   </table>
+	  </div>
+	 </div>
+	 <div class="dlzc">
+	  <div class="user">
+	   <ul>
+	    <a href="javascript:void()" id="hdl">登陆</a>
+	    <a>|</a>
+	    <a href="注册.html">注册</a>
+	   </ul>
+	  </div>
+	 </div>
+	</div>
+	<div class="b1">
+	 <div class="leftnr">
+	  <div class="lb">
+	   <div class="lbt">
+	    <img class="lbtimg"  src="img/1.jpg">
+	   </div>
+	   <div class="lbtright">
+	    <ul>
+	     <li><div class="wz zjdl" id="y">111</div></li>
+	     <li><div class="wz" id="e">222 </div></li>
+	     <li><div class="wz" id="s">333</div></li>
+	    </ul>
+	   </div>
+	  </div>
+	 
+	  <div class="ly">
+	   <div class="lybt">
+	   	<b><span style="color:#00AA98">最新</span><span>领养</span></b>
+	   </div>
+	   <div class="lynr">
+	    <ul>
+	     <li class="qcfd">
+	      <div class="imgs">
+           <a href="javascript:void"><img src="img/1.jpg"></a>
+	      </div>
+	      <div class="contents">
+			<span>等一下写</span>
+	      </div>
+	     </li>
+	     <li class="qcfd">
+	      <div class="imgs">
+           <a href="javascript:void"><img src="img/1.jpg"></a>
+	      </div>
+	      <div class="contents">
+			<span>等一下写</span>
+	      </div>
+	     </li>
+	     <li class="qcfd">
+	      <div class="imgs">
+           <a href="javascript:void"><img src="img/1.jpg"></a>
+	      </div>
+	      <div class="contents">
+			<span>等一下写</span>
+	      </div>
+	     </li>
+	     <li class="qcfd">
+	      <div class="imgs">
+           <a href="javascript:void"><img src="img/1.jpg"></a>
+	      </div>
+	      <div class="contents">
+			<span>等一下写</span>
+	      </div>
+	     </li>
+	     <li class="qcfd">
+	      <div class="imgs">
+           <a href="javascript:void"><img src="img/1.jpg"></a>
+	      </div>
+	      <div class="contents">
+			<span>等一下写</span>
+	      </div>
+	     </li>
+	     <li class="qcfd" id="jz">
+	      <div class="append" style="float:left;margin-left:316px;">
+	       加载更多↓↓
+	      </div>
+	     </li>
+	    </ul>
+	   </div>
+	  </div>
+	 </div>
+
+
+
+	 <div class="rightnr">
+
+	  <div class="xw">
+	   <span>新闻导读</span>
+	  </div>
+	  <div>
+	   <table>
+	    <tr>
+	     <td>
+	      <div class="n1">
+		    1
+		  </div>
+		 </td>
+		 <tr>
+		 <td>
+	      <div class="n1">
+		    2
+		  </div>
+		 </td>
+		 </tr>
+		 <tr>
+		 <td>
+	      <div class="n1">
+		    3
+		  </div>
+		 </td>
+		 </tr>
+		 <tr>
+		 <td>
+	      <div class="n1">
+		    4
+		  </div>
+		 </td>
+		</tr>
+		</tr>
+	   </table>
+	  </div>
+
+	  <div class="zzs">
+	   <span><span style="font-size:30px;color:green;">涨</span>知识</span>
+	  </div>
+	  <div class="zzslb">
+	   <ul>
+	    <li>
+	     <a href="javascript:void();">
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	     </a>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	    <li>
+	     <div class="time">15:20</div>
+	     <div class="titles">
+	      为什么你年赛暗示阿斯顿撒了身上发第v是第v是第v生的
+	     </div>
+	    </li>
+	   </ul>
+	  </div>
+
+	 </div>
+
+   <div class="yqlj">
+    <ul>
+	    <li><a href="javascript:void">房屋网</a></li>
+	    <li><a href="javascript:void">百度一下</a></li>
+	    <li><a href="javascript:void">80s</a></li>
+	    <li><a href="javascript:void">淘宝网</a></li>
+	    <li><a href="javascript:void">瓜子</a></li>
+	    <li><a href="javascript:void">五八</a></li>
+		<li><a href="javascript:void">亚马逊</a></li>
+	    <li><a href="javascript:void">腾讯</a></li>
+	    <li><a href="javascript:void">支付宝</a></li>
+	    <li><a href="javascript:void">qq</a></li>
+	    <li><a href="javascript:void">唯品会</a></li>
+	    <li><a href="javascript:void">网易</a></li>
+	    <li><a href="javascript:void">英雄联盟</a></li>
+	    <li><a href="javascript:void">绝地求生</a></li>
+	    <li><a href="javascript:void">泡泡网</a></li>
+	    <li><a href="javascript:void">学新网</a></li>
+		<li><a href="javascript:void">交易</a></li>
+	    <li><a href="javascript:void">优酷</a></li>
+	    <li><a href="javascript:void">珍宠网</a></li>
+	    <li><a href="javascript:void">爱心网</a></li>
+    </ul>
+   </div>
+  </div>
+<div class="over">
+ <div style="margin-left:80px;float:left">本网站建设于2019-02-18 16:45 星期一 雨
+ </div>
+ <div style="float:right;margin-right:100px;">
+  <table>
+   <tr>
+    <td>|关于我们|</td>
+    <td>商务合作|</td>
+    <td>联系我们|</td>
+    <td>领养帮助|</td>
+   </tr>
+  </table>
+ </div>
+</div>
+<div class="main">
+	  <div style="position:relative">
+		<p style="font-size:42px;">欢迎登陆小宠网</p>
+		<p style="font-size:26px;">每一天都期待你<b>您</b>的到来。</p>
+		 <span id="gb" style="color:red;position:absolute;top:3px;left:383px;cursor:pointer">X</span>
+	  </div>
+	 
+	  <div>
+	  
+		<form >
+			<div class="gs">
+				<input type="text" name="username" placeholder="用户名" autofocus="true" id="user">
+			</div>	
+			<div class="gs">
+				 <input type="password" name="passname" id="ps" placeholder="密码">
+			</div>
+			<div class="wjmm">
+				 <span><a href="找回密码.html">忘记密码</a></span>
+			</div>
+
+			<div class="cwts">
+				
+			</div>
+
+			<div class="gs">
+				 <input type="button" value="登陆" id="button1" class="">
+			</div>
+			
+		</form>
+	   </div>	
+</div>
+</div>
+</body>
+
+ <script type="text/javascript">
+    //轮播图的jquer
+    var li=$("div.wz");
+     var i=-1;
+     $(function(){
+     	function lbt(){
+     		i++;
+		li.eq(i).addClass("zjdl");
+		$("div.lbtright>ul>li").eq(i).siblings().children().removeClass("zjdl");
+			i++;
+		$(".lbtimg").attr("src","img/"+ i +".jpg");
+		
+		i--;
+		if(i==2){
+			i=-1;
+		  }
+     	}
+     	 zt=setInterval(lbt,1000);
+
+     	$(".wz").hover(function(e){
+     		clearInterval(zt);
+     		if(e.target.id=="y"){
+     			
+     			var m=0
+     			$(this).addClass("zjdl");
+     			$("div.lbtright>ul>li").eq(m).siblings().children().removeClass("zjdl");
+     			m++
+     			$(".lbtimg").attr("src","img/"+ m +".jpg");
+     		}
+     		else if(e.target.id=="e"){
+     			//clearInterval(zt);
+     			var n=1
+     			$(this).addClass("zjdl");
+     			$("div.lbtright>ul>li").eq(n).siblings().children().removeClass("zjdl");
+     			n++
+     			$(".lbtimg").attr("src","img/"+ n +".jpg");
+     		}
+     		else{
+     			//clearInterval(zt);
+     			var n1=2
+     			$(this).addClass("zjdl");
+     			$("div.lbtright>ul>li").eq(n1).siblings().children().removeClass("zjdl");
+     			n1++
+     			$(".lbtimg").attr("src","img/"+ n1 +".jpg");
+     		}
+     	
+     	},function(){
+     		 zt=setInterval(lbt,1800);
+     	})
+     })
+     //动态插入DOM元素
+     $(function(){
+     	$("#jz").click(function(){
+     		var x=$('<li class="qcfd"><div class="imgs"><a href="javascript:void"><img src="img/1.jpg"></a></div><div class="contents"><span>刚刚插入的</span></div></li>');
+     		$("#jz").before(x);
+     	})
+
+     })
+</script>
+
+<script type="text/javascript">
+$("#hdl").click(function(){
+	$(".main").css("display","block");
+})
+</script>
+
+<script type="text/javascript">
+var zt=1;
+$("#gb").click(function(){
+	$(".main").css("display","none");
+})
+function dl(){
+	
+	var us1=$("#user").val();
+	var mma1=$("#ps").val();
+	/*if(zt==0){
+		$(".cwts").text("用户名或密码错误")
+		$("#button1").removeClass("bjys");
+		return false;
+	}*/
+   if(us1==""){
+		$("#button1").removeClass("bjys");
+		$(".cwts").text("请输入用户名");
+		return false;
+
+	}
+	else if(mma1==""){
+		$("#button1").removeClass("bjys");
+		$(".cwts").text("请输入密码");
+		return false;
+	}
+	else if(zt==0&&(us1!==''&&mma1!='')){
+		$("#button1").addClass("bjys");
+
+		return false;
+		
+	}
+	else{
+		$(".cwts").text("")
+		$("#button1").addClass("bjys");
+
+	}
+}
+$(function(){
+  $("#user").on("keyup focus blur",dl);
+  $("#ps").on("keyup focus blur",dl);
+
+})
+$("#button1").click(function(){
+	var us=$("#user").val();
+	var mma=$("#ps").val();
+	$.post("http://localhost/dl.php",{id:us,pass:mma},function(data,status){
+		if(data=="cg"){
+			alert(data)
+			window.location.href="主页.html"	 
+		}
+		else{
+			//alert(data)
+			zt=0;
+			$("#button1").removeClass("bjys");
+			$(".cwts").text("用户名或密码错误")
+			return false;
+
+		}
+
+	 })
+})
+</script>
+</html>

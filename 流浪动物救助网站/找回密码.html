@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>find password</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <style type="text/css">
+    .nr{
+    	width: 400px;
+    	margin-left: 325px;
+        margin-top: 70px;
+    }
+	.gy>input{
+		        width: 400px;
+				height: 50px;
+				line-height: 50px;
+				border: solid 1px #aaa;
+			    border-radius: 6px;
+			    margin-top:10px; 
+	}
+	.ts{
+		        width: 400px;
+				height: 30px;
+				line-height: 30px;
+			    margin-top: 10px;
+			    color: red;
+	}
+	.bj{
+		background-color: blue;
+	}
+    </style>
+</head>
+<body style="background-color:#F5F5F5">
+  <div style="border-bottom:solid 1px #5B4444;">
+  	<p style="font-size:24px;">找回密码</p>
+  </div>
+	
+	<div class="nr">
+		<form>
+			<div class="gy">
+				<input type="text" id="user" placeholder="用户名" autofocus="true">
+			</div>
+			<div class="gy">
+				<input type="tel" id="tel" placeholder="电话">
+			</div>
+			<div class="ts">
+
+			</div>
+			<div class="gy"> 
+				<input type="button" id="button1" value="提交" class="">
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+		
+			var zt=0;
+			function cz(){
+				var use = $("#user").val();
+			    var te  = $("#tel").val();
+				if(use==""){
+					$(".ts").text("请输入用户名")
+					$("#button1").removeClass("bj")
+					$('#button1').attr('disabled',"true");
+					return false;
+				}
+		
+				 else if(te==""){
+					$(".ts").text("请输入电话")
+					$("#button1").removeClass("bj")
+					$('#button1').attr('disabled',"true");
+					return false;
+				}
+				else if(te!="" && te!="15084991224"){
+					$(".ts").text("电话格式不正确")
+					$("#button1").removeClass("bj")
+					$('#button1').attr('disabled',"true");
+					return false;
+				}
+				
+				else{
+					$(".ts").text("")
+					$("#button1").addClass("bj")
+					$('#button1').removeAttr('disabled',"true");
+				}
+			}
+
+			$(function(){
+	  $("#user").on("keyup focus blur",cz);
+	  $("#tel").on("keyup focus blur",cz);
+
+	})
+
+		    $("#button1").click(function(){
+		    	var use1 = $("#user").val();
+			    var te1  = $("#tel").val();
+		    $.post("http://localhost/zhmm.php",{id:use1,dh:te1},function(data,status){
+			if(data=="未查询到结果"){
+				
+				 alert("失败了:"+data+":");
+				console.log("sb"+data+":"+status)
+			}
+			else{
+				
+				alert("您的密码是:"+data)
+				console.log("cg:"+data+":"+status)
+				//window.location.href="登陆.html"
+			}
+
+		 })
+	  })
+
+</script>
+</html>

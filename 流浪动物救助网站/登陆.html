@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+	<title>登陆</title>
+</head>
+<style type="text/css">
+		*{
+			padding:0px;
+			margin: 0px;
+		}
+			
+			.gs{
+				margin-top: 20px;
+			}
+			.gs>input{
+				width: 400px;
+				height: 50px;
+				line-height: 50px;
+				border: solid 1px #aaa;
+			    border-radius: 6px;
+			}
+			.wjmm{
+				float: right;
+			}
+			.wjmm:after{
+				  content: "020"; 
+				  display: block; 
+				  height: 0; 
+				  clear: both; 
+				  visibility: hidden;  
+ 				 }
+			.cwts{
+				width: 400px;
+				height: 40px;
+				line-height: 40px;
+				margin-top: 10px;
+				color: red;
+			}
+			.bjys{
+				background-color: blue;
+			}
+			.main{
+				position: absolute;
+				z-index: 3;
+				width: 402px;
+				height: 430px;
+				margin-right: 200px;
+				border: solid 1px black;
+			}
+
+</style>
+<body>
+	<div class="main">
+	  <div style="position:relative">
+		<p style="font-size:42px;">欢迎登陆小宠网</p>
+		<p style="font-size:26px;">每一天都期待你<b>您</b>的到来。</p>
+		 <span id="gb" style="color:red;position:absolute;top:3px;left:383px;cursor:pointer">X</span>
+	  </div>
+	 
+	  <div>
+	  
+		<form >
+			<div class="gs">
+				<input type="text" name="username" placeholder="用户名" autofocus="true" id="user">
+			</div>	
+			<div class="gs">
+				 <input type="password" name="passname" id="ps" placeholder="密码">
+			</div>
+			<div class="wjmm">
+				 <span><a href="找回密码.html">忘记密码</a></span>
+			</div>
+
+			<div class="cwts">
+				
+			</div>
+
+			<div class="gs">
+				 <input type="button" value="登陆" id="button1" class="">
+			</div>
+			
+		</form>
+	   </div>	
+	</div>
+
+</body>
+<script type="text/javascript">
+var zt=1;
+$("#gb").click(function(){
+	$(".main").css("display","none");
+})
+function dl(){
+	
+	var us1=$("#user").val();
+	var mma1=$("#ps").val();
+	/*if(zt==0){
+		$(".cwts").text("用户名或密码错误")
+		$("#button1").removeClass("bjys");
+		return false;
+	}*/
+   if(us1==""){
+		$("#button1").removeClass("bjys");
+		$(".cwts").text("请输入用户名");
+		return false;
+
+	}
+	else if(mma1==""){
+		$("#button1").removeClass("bjys");
+		$(".cwts").text("请输入密码");
+		return false;
+	}
+	else if(zt==0&&(us1!==''&&mma1!='')){
+		$("#button1").addClass("bjys");
+
+		return false;
+		
+	}
+	else{
+		$(".cwts").text("")
+		$("#button1").addClass("bjys");
+
+	}
+}
+$(function(){
+  $("#user").on("keyup focus blur",dl);
+  $("#ps").on("keyup focus blur",dl);
+
+})
+
+
+$("#button1").click(function(){
+	var us=$("#user").val();
+	var mma=$("#ps").val();
+	$.post("http://localhost/dl.php",{id:us,pass:mma},function(data,status){
+		if(data=="cg"){
+			alert(data)
+			window.location.href="主页.html"	 
+		}
+		else{
+			//alert(data)
+			zt=0;
+			$("#button1").removeClass("bjys");
+			$(".cwts").text("用户名或密码错误")
+			return false;
+
+		}
+
+	 })
+})
+</script>
+</html>

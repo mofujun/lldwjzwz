@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>注册</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin: 0;
+		}
+		html,body{
+				height: 100%;
+				width: 100%;
+
+			background-image: url(img/bj.gif);
+			background-repeat: no-repeat;
+			background-size: cover;
+			}
+		.zt{
+			
+			height: 100%;
+			width: 100%;
+			
+			display: flex;
+			justify-content:center;
+			align-items:center;
+		}
+		.nr{
+			width: 800px;
+			height: 500px;
+			display: flex;
+			justify-content:center;
+		}
+		.nrimg{
+			width: 400px;
+			height: 500px;
+			background-image: url(img/bj.jpg);
+			opacity:0.8;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: 3px;
+		
+		}
+		.nrbd{
+			width: 356px;
+			height: 500px;
+			background-color: #FFFFFF;
+		}
+		.gz1{
+			margin-left:28px; 
+		}
+		.gz{
+		
+		}
+		.gz>input{
+			width: 300px;
+			height: 50px;
+			line-height: 50px;
+			border: solid 1px #aaa;
+			border-radius: 6px;
+		}
+		.tsk{
+			width: 300px;
+			height: 30px;
+			margin-top: 5px;
+			margin-left:28px; 
+			line-height: 30px;
+		}
+		.cw{
+			
+		}
+		.cwys{
+			color: red;
+		}
+		.zqys{
+			color: green;
+		}
+		.but{
+			background-color: #3789FF;
+		}
+	</style>
+</head>
+<body>
+	<div class="zt">
+		<div class="nr">
+			<div class="nrimg">
+			</div>
+			<div class="nrbd">
+			  <form>
+				<div style="font-size:18px;margin: 20px 0 0 50px;" >愿爱永远伴随着你的成长.</div>
+				<div class="gz yhm gz1"  id="">
+					<input type="text" name="yhm" placeholder="昵称" autofocus="true" id="user">
+				</div>
+				<div class="yhmts tsk">
+					
+				</div>
+				<div class="gz password gz1">
+					<input type="password" name="password" placeholder="密码" id="pass">
+				</div>
+				<div class="mmts tsk">
+					
+				</div>
+
+				<div class="gz password gz1 password1">
+					<input type="password" name="password1" placeholder="再次输入密码" id="pass1">
+				</div>
+				<div class="mmts1 tsk" >
+					
+				</div>
+				
+				<div class="gz gz1 dha">
+					<input type="tel"  id="dh" placeholder="电话">
+				</div>
+
+				<div class="tel tsk">
+					
+				</div>
+
+				<div class="gz gz1">
+					<input type="button" value="注册" id="button1">
+				</div>
+
+			  </form>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript">
+var zt3=0,zt1=0,zt2=0,zt4=0;
+//$("#button1").attr("disabled",true);
+
+function myFunction(){
+ 	  var yhm =$("div.yhm>input").val();
+ 	if(yhm==""){
+ 		$(".yhmts").removeClass("zqys cwys");
+ 		$(".yhmts").addClass("cwys").text("用户名不能为空！");
+ 		zt3=0
+ 		return false;
+ 	}
+   $.get("http://localhost/jcyhm.php?q="+yhm,function(data,status){
+      //alert("数据: " + data + "\n状态: " + status);
+      //$("#nr").html(data)
+      var x=$.trim(data);
+      
+      if(x!=yhm){
+      	$(".yhmts").removeClass("zqys cwys");
+      	$(".yhmts").addClass("zqys").text("正确√");
+      	zt3=1;
+      	if(zt1==1&&zt2==1&&zt3==1&&zt4==1){
+ 			$("#button1").addClass("but")
+ 		}
+ 		else{
+ 			$("#button1").removeClass("but")
+ 		}
+      }
+      else{
+      	$(".yhmts").removeClass("zqys cwys");
+      	$(".yhmts").addClass("cwys").text("该用户名已被注册!");
+      	zt3=0
+      	$("#button1").removeClass("but")
+      	return false;
+      }
+    }).error(function(jqXHR){
+alert("出错:"+jqXHR.status+":"+jqXHR.readyState);
+});   
+}
+ 	$("div.yhm>input").on("keyup focus blur", myFunction);
+ 	//yhm
+ 
+function myFunction1(){
+ 	var mm =$("div.password>input").val();
+ 	var mm1 =$("div.password1>input").val();
+ 	if(mm==""){
+ 		$(".mmts").removeClass("zqys");
+ 		$(".mmts").addClass("cwys").text("密码不能为空！");
+ 		zt2=0
+ 		$("#button1").removeClass("but")
+ 		return false;
+ 	}
+ 	else if(mm1!=mm){
+ 		$(".mmts1").removeClass("zqys");
+ 		$(".mmts1").addClass("cwys").text("两次密码不相同！");
+ 		$(".mmts").removeClass("zqys");
+ 		$(".mmts").addClass("cwys").text("两次密码不相同！");
+ 		zt1=0
+ 		$("#button1").removeClass("but")
+ 		return false;
+ 	}
+ 	else{
+ 		$(".mmts").removeClass("cwys");
+ 		$(".mmts").addClass("zqys").text("正确√");
+ 		$(".mmts1").removeClass("cwys");
+ 		$(".mmts1").addClass("zqys").text("正确√");
+ 		zt2=1;
+ 		if(zt1==1&&zt2==1&&zt3==1&&zt4==1){
+ 			$("#button1").addClass("but")
+ 		}
+ 		else{
+ 			$("#button1").removeClass("but")
+ 		}
+ 	}
+ } 
+$("div.password>input").on("keyup focus blur", myFunction1);
+//mima
+
+ function myFunction2(){
+ 	var mm1 =$("div.password1>input").val();
+ 	var mm =$("div.password>input").val();
+ 	if(mm1==""){
+ 		$(".mmts1").removeClass("zqys");
+ 		$(".mmts1").addClass("cwys").text("密码不能为空！");
+ 		zt1=0
+ 		$("#button1").removeClass("but")
+ 		return false;
+ 	}
+ 	else if(mm1!=mm){
+ 		$(".mmts1").removeClass("zqys");
+ 		$(".mmts1").addClass("cwys").text("两次密码不相同！");
+ 		$(".mmts").removeClass("zqys");
+ 		$(".mmts").addClass("cwys").text("两次密码不相同！");
+ 		zt1=0
+ 		$("#button1").removeClass("but")
+ 		return false;
+ 	}
+ 	else{
+ 		$(".mmts1").removeClass("cwys");
+ 		$(".mmts1").addClass("zqys").text("正确√");
+ 		$(".mmts").removeClass("cwys");
+ 		$(".mmts").addClass("zqys").text("正确√");
+ 		zt1=1;
+ 		if(zt1==1&&zt2==1&&zt3==1&&zt4==1){
+ 			$("#button1").addClass("but")
+ 		}
+ 		else{
+ 			$("#button1").removeClass("but")
+ 		}
+ 	}
+ 	
+ }
+
+ $("div.password1>input").on("keyup focus blur", myFunction2);
+
+ function  myFunction3(){
+ 	var dh =$("div.dha>input").val();
+ 	if(dh==""){
+ 		$(".tel").removeClass("zqys");
+ 		$(".tel").addClass("cwys").text("电话不能为空！");
+ 		$("#button1").removeClass("but")
+ 		zt4=0;
+ 		return false;
+ 	}
+ 	else if(dh!='15084991224'){
+ 		$(".tel").removeClass("zqys");
+ 		$(".tel").addClass("cwys").text("电话格式不正确");
+ 		$("#button1").removeClass("but")
+ 		zt4=0;
+ 		return false;
+ 	}
+ 	else{
+ 		zt4=1;
+ 		$(".tel").removeClass("cwys");
+ 		$(".tel").addClass("zqys").text("正确√");
+ 		if(zt1==1&&zt2==1&&zt3==1&&zt4==1){
+ 			$("#button1").addClass("but")
+ 		}
+ 		else{
+ 			$("#button1").removeClass("but")
+ 		}
+ 	}
+ }
+
+ $("div.dha>input").on("keyup focus blur", myFunction3);
+
+$("#button1").click(function(){
+	if(zt1==1&&zt2==1&&zt3==1){
+
+	 var mz=$("#user").val();
+     var mma=$("#pass").val();
+     var te=$("#dh").val();
+	$.post("http://localhost/userinsert.php",{id:mz,pass:mma,hm:te},function(data,status){
+		if(data=="cg"){
+			alert(data)
+			window.location.href="登陆.html"
+			 
+		}
+		else{
+			alert(data);
+		}
+
+	 })
+	}
+     
+})
+
+</script>
+</html>
